@@ -1,0 +1,69 @@
+1. START the program
+
+2. SHOW welcome message and rules
+
+3. LET user choose a difficulty level
+	a. Based on level, set a list of possible secret words
+
+4. RANDOMLY select a secret word from the chosen list
+
+5. TELL the user how many letters are in the secret word
+
+6. SET attempt counter to 0
+
+7. WHILE the user hasn't guessed the word:
+	a. ASK user to enter a guess
+	b. INCREMENT attempt counter
+	c. IF guess equals secret word:
+		i. PRINT "Congratulations!" and show attempts
+		ii. BREAK loop
+	d. ELSE:
+		i. COMPARE each letter in the guess to the secret word
+		ii. COUNT how many letters are correct and in the correct place
+5. Possible Stretch Goals
+	Limit the number of guesses.
+	Show all past guesses.
+	Give more detailed hints (e.g., which letters are correct).
+	Add a "play again" feature.
+	import random
+
+
+
+	#1. Define password lists by difficulty
+easy_words = ["apple", "train", "tiger", "money", "india"]
+medium_words = ["python", "bottle", "monkey", "planet", "laptop"]
+hard_words = ["elephant", "diamond", "umbrella", "computer", "mountain"]
+	print("Welcome to the Password Guessing Game!")
+	print("Choose a difficulty level: easy, medium, or hard")
+
+	#2. User chooses difficulty
+level = input("Enter difficulty: ").lower()
+if level == "easy":
+secret = random.choice(easy_words)
+elif level == "medium":
+secret = random.choice(medium_words)
+elif level = "hard":
+secret = random.choice(hard_words)
+else:
+print("Invalid choice. Defaulting to easy level.")
+secret = random.choice(easy_words)
+attempts = 0
+print("\nGuess the secret password!")
+
+	#3. Game loop
+while True:
+guess = input("Enter your guess: ").lower()
+attempts += 1
+if guess == secret:
+print(f"Congratulations! You guessed it in {attempts} attempts.")
+break
+
+	#4. Give a hint: show which letters are correct (like Wordle)
+hint =
+for i in range(len(secret)):
+if i < len(guess) and guess [i] == secret[i]:
+hint += guess[i]
+else:
+hint += " "
+print("Hint: " + hint)
+print("Game Over.")
